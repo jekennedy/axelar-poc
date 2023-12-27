@@ -1,6 +1,6 @@
 # Protocol X DAO Distribution
 
-To support their upcoming DAO token distribution event, ProtocolX utilizes a complicated algorithm to determine fair token distribution. Although their DApp resides on Ethereum mainnet, the execution of the token distribution algorithm should be performed on an L2. 
+To support ProtocolX's upcoming DAO token distribution event, a complicated algorithm is utilized to determine fair token distribution. Although their DApp resides on Ethereum mainnet, the execution of the token distribution algorithm should be performed on an L2 to save on costs. 
 
 To support this requirement, this project leverages Axelar’s GMP capabilities to perform the execution on a specified L2. DAO members can then claim their tokens on Ethereum.
 
@@ -15,11 +15,12 @@ npm run build
 npm run start
 npm run deploy evm/protocolx local
 ```
+Note: After deploying the contracts save the addresses for the DaoTokenDistributor on Ethereum and DaoDistributionCalculator on your chosen L2. These are needed for the next step. 
 
 ## Execution
 
 ```bash
-npm run execute evm/send-ack [local|testnet] ${srcChain} ${destChain} ${srcChainContractAddress} ${destChainContractAddress}
+npm run execute evm/send-ack [local|testnet] ${srcChain} ${destChain} ${srcChainAddrDistributor} ${destChainAddrCalculator}
 ```
 
 ## Example
